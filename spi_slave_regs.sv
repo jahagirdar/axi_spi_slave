@@ -9,7 +9,8 @@
 // specific language governing permissions and limitations under the License.
 
 module spi_slave_regs #(
-  parameter REG_SIZE = 8
+  parameter REG_SIZE = 8,
+  parameter QUAD_EN = 0
 ) (
   input  logic                sclk,
   input  logic                rstn,
@@ -50,7 +51,7 @@ module spi_slave_regs #(
   begin
     if (rstn == 0)
     begin
-      reg0= 'h0;
+      reg0= 'h0|QUAD_EN;
       reg1= 'd32;
       reg2= 'h0;
       reg3= 'h0;

@@ -14,7 +14,8 @@
 
 module spi_slave_controller
     #(
-    parameter DUMMY_CYCLES = 32
+    parameter DUMMY_CYCLES = 32,
+    parameter QUAD_EN = 0
     )
     (input logic        sclk,
     input  logic        sys_rstn,
@@ -98,7 +99,8 @@ module spi_slave_controller
       );
 
   spi_slave_regs #(
-      .REG_SIZE(REG_SIZE)
+      .REG_SIZE(REG_SIZE),
+      .QUAD_EN(QUAD_EN)
     ) u_spiregs(
       .sclk(sclk),
       .rstn(sys_rstn),

@@ -14,7 +14,8 @@ module axi_spi_slave
     parameter AXI_DATA_WIDTH = 64,
     parameter AXI_USER_WIDTH = 6,
     parameter AXI_ID_WIDTH   = 3,
-    parameter DUMMY_CYCLES   = 32
+    parameter DUMMY_CYCLES   = 32,
+    parameter QUAD_EN=0
 )
 (
     input  logic                        test_mode,
@@ -162,7 +163,8 @@ module axi_spi_slave
 
     spi_slave_controller
     #(
-        .DUMMY_CYCLES ( DUMMY_CYCLES )
+        .DUMMY_CYCLES ( DUMMY_CYCLES ),
+	.QUAD_EN(QUAD_EN)
     )
     u_slave_sm
     (
