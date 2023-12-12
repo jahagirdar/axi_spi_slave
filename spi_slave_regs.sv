@@ -51,10 +51,10 @@ module spi_slave_regs #(
   begin
     if (rstn == 0)
     begin
-      reg0= 'h0|QUAD_EN;
-      reg1= 'd32;
-      reg2= 'h0;
-      reg3= 'h0;
+      reg0 <= 'h0|QUAD_EN;
+      reg1 <= 'd32;
+      reg2 <= 'h0;
+      reg3 <= 'h0;
     end
     else
     begin
@@ -62,13 +62,13 @@ module spi_slave_regs #(
       begin
         case(wr_addr)
           2'b00:
-            reg0=wr_data;
+            reg0<=wr_data;
           2'b01:
-            reg1=wr_data;
+            reg1<=wr_data;
           2'b10:
-            reg2=wr_data;
+            reg2<=wr_data;
           2'b11:
-            reg3=wr_data;
+            reg3<=wr_data;
         endcase
       end
     end
